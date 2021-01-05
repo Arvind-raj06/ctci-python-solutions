@@ -67,28 +67,31 @@ Your class should implement the methods `enqueue`, `dequeue` and `peek`.
 
   The time complexity is $$O(n)$$ since each item is transferred from one stack to the other *once*. The space complexity is also $$O(n)$$.
   ```python
-def sortStack ( stack ): 
-    tmpStack = createStack() 
-    while(isEmpty(stack) == False): 
-        tmp = top(stack) 
-        pop(stack)
-        while(isEmpty(tmpStack) == False and int(top(tmpStack)) > int(tmp)): 
-            push(stack,top(tmpStack)) 
-            pop(tmpStack) 
-        push(tmpStack,tmp) 
-    return tmpStack
+class stacksort:
+    def _init_(self):
+        self.stack=[]
+    def sortStack(self):
+        tmpStack = createStack() 
+        while(isEmpty(self.stack) == False): 
+            tmp = top(self.stack) 
+            pop(self.stack)
+            while(isEmpty(tmpStack) == False and int(top(tmpStack)) > int(tmp)): 
+                push(stack,top(tmpStack))
+                pop(tmpStack)
+                push(tmpStack,tmp)
+        return tmpStack
     
-def push( stack, item ): 
-    stack.append( item ) 
+    def push(self, item): 
+        self.stack.append(item) 
   
-def top( stack ): 
-    p = len(stack) 
-    return stack[p-1] 
+    def top(self): 
+        p = len(self.stack) 
+        return self.stack[p-1] 
     
-def pop( stack ): 
-    if(len(stack)==0): 
-        print("Stack Underflow ") 
-        exit(1)
-    return stack.pop() 
+    def pop(self): 
+        if(len(self.stack)==0): 
+            print("Stack Underflow ") 
+            exit(1)
+        return self.stack.pop()
   ```
   </details>
